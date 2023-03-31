@@ -1,6 +1,6 @@
 Name:		texlive-picture
 Version:	54867
-Release:	1
+Release:	2
 Summary:	Dimens for picture macros
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/picture
