@@ -3,7 +3,7 @@ Version:	54867
 Release:	2
 Summary:	Dimens for picture macros
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/picture
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/picture
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.doc.r%{version}.tar.xz
