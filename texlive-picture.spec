@@ -1,41 +1,24 @@
-Name:		texlive-picture
-Version:	54867
-Release:	2
+%global tl_name picture
+%global tl_revision 79461
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.0
+Release:	%{tl_revision}.1
 Summary:	Dimens for picture macros
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/picture
-License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.source.r%{version}.tar.xz
+License:	lppl1.3c
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/picture.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-There are macro and environment arguments that expect numbers
-that will internally be multiplied by \unitlength. This package
-extends the syntax of these arguments, so that dimensions with
-calculation support may be used for these arguments.
+There are macro and environment arguments that expect numbers that will
+internally be multiplied by \unitlength. This package extends the syntax
+of these arguments, so that dimensions with calculation support may be
+used for these arguments.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/picture
-%{_texmfdistdir}/tex/latex/picture
-%doc %{_texmfdistdir}/doc/latex/picture
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
